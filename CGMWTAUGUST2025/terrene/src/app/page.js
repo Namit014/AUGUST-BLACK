@@ -16,8 +16,8 @@ import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
-
-let isInitialLoad = true;
+import Spotlight from "@/components/Spotlight/Spotlight";
+let isInitialLoad = false;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
@@ -171,11 +171,11 @@ export default function Home() {
           <div className="intro-logo">
             <div className="word" id="word-1">
               <h1>
-                <span>AUGUST</span>
+                <span>co</span>
               </h1>
             </div>
             <div className="word" id="word-2">
-              <h1>BLACK</h1>
+              <h1>Nekt</h1>
             </div>
           </div>
           <div className="divider"></div>
@@ -234,28 +234,46 @@ export default function Home() {
         <div className="hero-gradient"></div>
         <div className="container">
           <div className="hero-content">
-            <div className="hero-header">
+            {/* Top Pill Announcement Badge */}
+            <div className="hero-pill-badge">
+              <span className="pill-dot" />
+              <span>ALL IN ONE EDA OS</span>
+            </div>
+
+            {/* Main Headline */}
+            <div className="hero-headline">
               <Copy animateOnScroll={false} delay={showPreloader ? 10 : 0.85}>
-                <h1>AUGUST-BLACK</h1>
+                <h1>
+                  From idea to hardware, <br />
+                  <span className="headline-highlight">in one place.</span>
+                </h1>
               </Copy>
             </div>
+
+            {/* Subheading */}
             <div className="hero-tagline">
               <Copy animateOnScroll={false} delay={showPreloader ? 10.15 : 1}>
                 <p>
-                  Where Bold Design Meets Timeless Elegance.
+                  Design. Simulate. Manufacture. Collaborate.
+                  <br />
+                  A unified OS for modern hardware creation.
                 </p>
               </Copy>
             </div>
+
+            {/* Primary CTA Button */}
             <AnimatedButton
-              label="Discover More"
-              route="/studio"
+              label="Join Waitlist"
+              onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
               animateOnScroll={false}
               delay={showPreloader ? 10.3 : 1.15}
             />
           </div>
         </div>
-        <div className="hero-stats">
-          <div className="container">
+      </section>
+
+      <section className="hero-stats-section">
+        <div className="container">
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.1}>
@@ -265,51 +283,50 @@ export default function Home() {
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.15}>
-                  <p>Completed design studies</p>
+                  <p>Completed PCB Tape-Outs</p>
                 </Copy>
               </div>
             </div>
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.2}>
-                  <h2>36</h2>
+                  <h2>10x</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.25}>
-                  <p>Ongoing spatial explorations</p>
+                  <p>Faster Routing Iterations</p>
                 </Copy>
               </div>
             </div>
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.3}>
-                  <h2>12</h2>
+                  <h2>100k+</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.35}>
-                  <p>Cross-disciplinary collaborators</p>
+                  <p>Verified AI Component Models</p>
                 </Copy>
               </div>
             </div>
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.4}>
-                  <h2>98%</h2>
+                  <h2>99.4%</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.45}>
-                  <p>Return rate across commissions</p>
+                  <p>First-Pass Fabrication Success</p>
                 </Copy>
               </div>
             </div>
           </div>
-        </div>
       </section>
       <section className="what-we-do">
         <div className="container">
@@ -317,9 +334,9 @@ export default function Home() {
             <Copy delay={0.1}>
               <h1>
                 <span className="spacer">&nbsp;</span>
-                At AUGUST BLACK, we design with purpose and clarity, creating spaces
-                that speak through light, scale, and the quiet confidence of
-                lasting form.
+                At Conekt, we build with intelligence and precision, providing an AI EDA
+                that assists users in making PCBs and reduces design complications
+                to absolute zero.
               </h1>
             </Copy>
           </div>
@@ -331,38 +348,39 @@ export default function Home() {
 
               <Copy delay={0.15}>
                 <p className="lg">
-                  We approach each build with a clarity of intent. Every plan is
-                  shaped through research, iteration, and conversation. What
-                  remains is the essential, designed to last and built to feel
-                  lived in.
+                  We approach each circuit with an AI-first mindset. Every board is
+                  shaped through intelligent automation, seamless routing, and deep analysis. What
+                  remains is an optimized PCB, designed to perform and built to scale.
                 </p>
               </Copy>
             </div>
             <div className="what-we-do-col">
               <div className="what-we-do-tags" ref={tagsRef}>
                 <div className="what-we-do-tag">
-                  <h3>Quiet</h3>
+                  <h3>AI-Powered</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>View</h3>
+                  <h3>Automated</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Tactile</h3>
+                  <h3>Intuitive</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Light-forward</h3>
+                  <h3>Precision</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Slow design</h3>
+                  <h3>Fast Routing</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Modular rhythm</h3>
+                  <h3>Low Complexity</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <Spotlight />
+      {/* 
       <section className="featured-projects-container">
         <div className="container">
           <div className="featured-projects-header-callout">
@@ -378,10 +396,11 @@ export default function Home() {
         </div>
         <FeaturedProjects />
       </section>
+      */}
       <section className="client-reviews-container">
         <div className="container">
           <div className="client-reviews-header-callout">
-            <p>Voices from our spaces</p>
+            <p>Voices from Hardware Engineers</p>
           </div>
           <ClientReviews />
         </div>
@@ -391,22 +410,22 @@ export default function Home() {
           <div className="gallery-callout-col">
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-1">
-                <img src="/gallery-callout/gallery-callout-1.jpg" alt="" />
+                <img src="/spotlight/4.jpg.jpeg" alt="" />
               </div>
               <div className="gallery-callout-img gallery-callout-img-2">
-                <img src="/gallery-callout/gallery-callout-2.jpg" alt="" />
+                <img src="/spotlight/8.jpg.jpeg" alt="" />
                 <div className="gallery-callout-img-content">
                   <h3>800+</h3>
-                  <p>Project Images</p>
+                  <p>PCB Layouts</p>
                 </div>
               </div>
             </div>
             <div className="gallery-callout-row">
               <div className="gallery-callout-img gallery-callout-img-3">
-                <img src="/gallery-callout/gallery-callout-3.jpg" alt="" />
+                <img src="/spotlight/5.jpg.jpeg" alt="" />
               </div>
               <div className="gallery-callout-img gallery-callout-img-4">
-                <img src="/gallery-callout/gallery-callout-4.jpg" alt="" />
+                <img src="/spotlight/6.jpg.jpeg" alt="" />
               </div>
             </div>
           </div>
@@ -414,22 +433,20 @@ export default function Home() {
             <div className="gallery-callout-copy">
               <Copy delay={0.1}>
                 <h3>
-                  Take a closer look at the projects that define our practice.
-                  From intimate interiors to expansive landscapes, each image
-                  highlights a unique perspective that might spark your next big
-                  idea.
+                  Secure your spot in the future of hardware engineering. Join our exclusive waitlist today to be among the first to experience our revolutionary AI-powered PCB design platform.
                 </h3>
               </Copy>
-              <AnimatedButton label="Explore Gallery" route="blueprints" />
+              <AnimatedButton label="Join Waitlist" onClick={() => window.dispatchEvent(new Event("openWaitlist"))} />
             </div>
           </div>
         </div>
       </section>
       <CTAWindow
-        img="/home/home-cta-window.jpg"
-        header="AUGUST BLACK"
-        callout="Spaces that breathe with time"
-        description="Our approach is guided by rhythm, proportion, and light, allowing every environment to grow more meaningful as it is lived in."
+        img="/spotlight/8.jpg.jpeg"
+        buttonLabel="Join Waitlist"
+        onButtonClick={() => window.dispatchEvent(new Event("openWaitlist"))}
+        callout="PCBs designed in record time"
+        description="Our approach is guided by intelligent automation and precision, allowing every engineer to build hardware with zero friction."
       />
       <ConditionalFooter />
     </>

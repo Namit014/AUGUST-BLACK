@@ -18,6 +18,7 @@ const AnimatedButton = ({
   animate = true,
   animateOnScroll = true,
   delay = 0,
+  onClick,
 }) => {
   const { navigateWithTransition } = useViewTransition();
   const buttonRef = useRef(null);
@@ -127,10 +128,17 @@ const AnimatedButton = ({
 
       initializeAnimation();
 
-      return () => {
+      const handleRevert = () => {
         if (splitRef.current) {
           splitRef.current.revert();
+          splitRef.current = null;
         }
+      };
+      window.addEventListener("revertSplits", handleRevert);
+
+      return () => {
+        window.removeEventListener("revertSplits", handleRevert);
+        handleRevert();
       };
     },
     { scope: buttonRef, dependencies: [animate, animateOnScroll, delay] }
@@ -142,9 +150,7 @@ const AnimatedButton = ({
       <div className="icon" ref={iconRef}>
         <IoMdArrowForward />
       </div>
-      <span className="button-text" ref={textRef}>
-        {label}
-      </span>
+      <span className="button-text" ref={textRef} dangerouslySetInnerHTML={{ __html: label }} />
     </>
   );
 
@@ -165,7 +171,7 @@ const AnimatedButton = ({
   }
 
   return (
-    <button className="btn" ref={buttonRef}>
+    <button className="btn" ref={buttonRef} onClick={onClick}>
       {buttonContent}
     </button>
   );

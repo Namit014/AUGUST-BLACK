@@ -15,7 +15,7 @@ const page = () => {
             <div className="contact-col">
               <div className="contact-hero-header">
                 <Copy delay={0.85}>
-                  <h1>All spaces begin with intention</h1>
+                  <h1>Every breakthrough circuit begins with Conekt</h1>
                 </Copy>
               </div>
               <div className="contact-copy-year">
@@ -28,37 +28,22 @@ const page = () => {
               <div className="contact-info">
                 <div className="contact-info-block">
                   <Copy delay={0.85}>
-                    <p>General</p>
-                    <p>desk@august-black.studio</p>
+                    <p>Email</p>
+                    <p>teams@conekt.design</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">
-                  <Copy delay={1}>
-                    <p>New Commissions</p>
-                    <p>build@august-black.studio</p>
-                    <p>+1 (872) 441‑2086</p>
+                  <Copy delay={1.0}>
+                    <p>Headquarters</p>
+                    <p>Mumbai, India</p>
                   </Copy>
                 </div>
-                <div className="contact-info-block">
-                  <Copy delay={1.15}>
-                    <p>Studio Address</p>
-                    <p>18 Cordova Lane</p>
-                    <p>Seattle, WA 98101</p>
-                  </Copy>
-                </div>
-                <div className="contact-info-block">
-                  <Copy delay={1.3}>
-                    <p>Social</p>
-                    <p>Instagram</p>
-                    <p>Are.na</p>
-                    <p>LinkedIn</p>
-                  </Copy>
-                </div>
+                {/* Social block removed */}
               </div>
               <div className="contact-img">
                 <img
-                  src="/contact/contact-img.jpg"
-                  alt="AUGUST BLACK studio workspace"
+                  src="/spotlight/4.jpg.jpeg"
+                  alt="Conekt AI EDA engineering workspace"
                 />
               </div>
             </div>

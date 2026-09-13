@@ -48,10 +48,17 @@ export const useViewTransition = () => {
       return;
     }
 
-    router.push(href, {
-      onTransitionReady: slideInOut,
-      ...options,
-    });
+    // Revert any GSAP SplitText instances across the app before transitioning
+    // to prevent React 'removeChild' crashes on unmount
+    window.dispatchEvent(new Event("revertSplits"));
+
+    // Delay slightly to ensure synchronous reverts are processed
+    setTimeout(() => {
+      router.push(href, {
+        onTransitionReady: slideInOut,
+        ...options,
+      });
+    }, 10);
   };
 
   return { navigateWithTransition, router };

@@ -296,7 +296,7 @@ export default function Gallery() {
 
         const itemNum = (Math.abs(row * columns + col) % itemCount) + 1;
         const img = document.createElement("img");
-        img.src = `/archive/archive-${itemNum}.jpg`;
+        img.src = `/spotlight/${(itemNum % 10) + 1}.jpg.jpeg`;
         img.alt = `Image ${itemNum}`;
         item.appendChild(img);
 

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { ReactLenis } from "lenis/react";
 import { ViewTransitions } from "next-view-transitions";
 
+import WaitlistModal from "@/components/WaitlistModal/WaitlistModal";
+
 export default function ClientLayout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -55,6 +57,7 @@ export default function ClientLayout({ children }) {
     <ViewTransitions>
       <ReactLenis root options={scrollSettings}>
         {children}
+        <WaitlistModal />
       </ReactLenis>
     </ViewTransitions>
   );

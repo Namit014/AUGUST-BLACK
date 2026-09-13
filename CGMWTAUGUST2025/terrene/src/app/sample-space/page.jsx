@@ -13,38 +13,37 @@ const page = () => {
       <div className="page sample-space">
         <section className="sample-space-hero">
           <div className="sample-space-hero-img">
-            <img src="/sample-space/hero.jpg" alt="Arcade Residence Lisbon" />
+            <img src="/spotlight/9.jpg.jpeg" alt="TensorCore AI Compute PCB" />
           </div>
           <div className="sample-space-hero-overlay"></div>
           <div className="container">
             <div className="sample-space-hero-header">
               <Copy delay={1} animateOnScroll={false}>
-                <h1>Arcade Residence</h1>
+                <h1>TensorCore Carrier</h1>
               </Copy>
             </div>
             <div className="sample-space-content">
               <div className="sample-space-col">
                 <Copy delay={1.05} animateOnScroll={false}>
-                  <p>Lisbon, Portugal</p>
+                  <p>16-Layer HDI Architecture</p>
                 </Copy>
               </div>
               <div className="sample-space-col">
                 <div className="sample-space-content-wrapper">
                   <Copy delay={1.1} animateOnScroll={false}>
-                    <p>Europe</p>
+                    <p>Edge AI Computing</p>
                   </Copy>
                 </div>
                 <div className="sample-space-content-wrapper">
                   <Copy delay={1.15} animateOnScroll={false}>
                     <h3>
-                      Arcade Residence is a study in rhythm and light, where
-                      colonnades and vaulted thresholds frame daily life with
-                      quiet grandeur.
+                      TensorCore Carrier is a flagship 16-layer high-density interconnect
+                      PCB engineered for ultra-low latency edge AI acceleration and high-throughput inference.
                     </h3>
                     <h3>
-                      The design combines classical proportions with a
-                      contemporary sensitivity, creating a home that feels both
-                      rooted in tradition and attuned to the present moment.
+                      Designed with Conekt's AI Copilot, the layout features automated
+                      2500-pin BGA breakout, length-matched PCIe Gen 5 lanes, and an optimized
+                      power distribution network with zero thermal hotspots.
                     </h3>
                   </Copy>
                 </div>
@@ -52,15 +51,15 @@ const page = () => {
                   <div className="sample-space-hero-row">
                     <div className="sample-space-hero-sub-col">
                       <Copy delay={0.2}>
-                        <p>Date Completed</p>
-                        <p>2021</p>
+                        <p>Tape-Out Date</p>
+                        <p>Q2 2025</p>
                       </Copy>
                     </div>
                     <div className="sample-space-hero-sub-col">
                       <Copy delay={0.2}>
-                        <p>Project Type</p>
-                        <p>Residential Architecture</p>
-                        <p>Retreat Wellness</p>
+                        <p>Board Classification</p>
+                        <p>16-Layer HDI / Blind &amp; Buried Vias</p>
+                        <p>High-Speed Digital &amp; RF</p>
                       </Copy>
                     </div>
                   </div>
@@ -70,16 +69,16 @@ const page = () => {
                     <div className="sample-space-hero-sub-col">
                       <Copy delay={0.35}>
                         <p>Collaborators</p>
-                        <p>Atelier Forma</p>
-                        <p>LX Stoneworks</p>
-                        <p>Studio Maré</p>
+                        <p>Aeroflux Robotics</p>
+                        <p>Synapse Silicon Labs</p>
+                        <p>Conekt EDA Core</p>
                       </Copy>
                     </div>
                     <div className="sample-space-hero-sub-col">
                       <Copy delay={0.35}>
-                        <p>Photography</p>
-                        <p>Atelier Forma</p>
-                        <p>Inês Almeida</p>
+                        <p>Verification</p>
+                        <p>100% DRC Clean</p>
+                        <p>0.2dB Loss @ 28GHz</p>
                       </Copy>
                     </div>
                   </div>
@@ -92,27 +91,26 @@ const page = () => {
           <div className="container">
             <div className="sample-space-col">
               <Copy delay={0.1}>
-                <p>Architectural Story</p>
+                <p>Engineering Architecture</p>
               </Copy>
             </div>
             <div className="sample-space-col">
               <Copy delay={0.1}>
                 <h3>
-                  At Arcade Residence, the sequence of arches creates a measured
-                  rhythm that guides movement through the home. Each passage
-                  frames daylight differently, shifting the mood as one moves
-                  from courtyard to living space.
+                  Routing 64 high-speed differential channels under tight physical
+                  constraints traditionally requires weeks of manual tuning.
+                  Conekt's AI routing engine resolved pin escapes, matched phase delays,
+                  and maintained target 85-ohm differential impedance autonomously.
                 </h3>
 
                 <h3>
-                  Materials were chosen for their quiet permanence: pale stone,
-                  lime plaster, and timber accents. These textures invite touch
-                  and age gracefully, ensuring the house evolves in character
-                  with time.
+                  Advanced thermal via arrays and multi-layer copper pours were
+                  synthesized directly beneath the primary SoC package, keeping junction
+                  temperatures 18°C lower under sustained full-load computing cycles.
                 </h3>
               </Copy>
               <div className="sample-space-details-img">
-                <img src="/sample-space/sample-space-1.jpg" alt="" />
+                <img src="/spotlight/6.jpg.jpeg" alt="" />
               </div>
             </div>
           </div>
@@ -121,7 +119,7 @@ const page = () => {
           <div className="container">
             <div className="sample-space-col">
               <Copy delay={0.1}>
-                <p>Spatial Qualities</p>
+                <p>Technical Specifications</p>
               </Copy>
             </div>
             <div className="sample-space-col">
@@ -129,18 +127,18 @@ const page = () => {
                 <div className="sample-space-hero-row">
                   <div className="sample-space-hero-sub-col">
                     <Copy delay={0.1}>
-                      <p>Atmosphere</p>
-                      <p>Calm</p>
-                      <p>Softened acoustics</p>
-                      <p>Filtered light</p>
+                      <p>Signal Integrity</p>
+                      <p>PCIe Gen 5 (32 GT/s)</p>
+                      <p>Sub-ps Lane Skew</p>
+                      <p>Low Crosstalk &lt; -45dB</p>
                     </Copy>
                   </div>
                   <div className="sample-space-hero-sub-col">
                     <Copy delay={0.1}>
-                      <p>Flow</p>
-                      <p>Passages</p>
-                      <p>Guided movement</p>
-                      <p>Rhythmic</p>
+                      <p>Substrate &amp; Stackup</p>
+                      <p>16-Layer Megtron 6</p>
+                      <p>Any-Layer Microvia (ALIVH)</p>
+                      <p>Controlled Impedance &plusmn;5%</p>
                     </Copy>
                   </div>
                 </div>
@@ -149,44 +147,43 @@ const page = () => {
                 <div className="sample-space-hero-row">
                   <div className="sample-space-hero-sub-col">
                     <Copy delay={0.2}>
-                      <p>Materials</p>
-                      <p>Lime plaster walls</p>
-                      <p>Local stone flooring</p>
-                      <p>Timber inlays</p>
+                      <p>Power Delivery</p>
+                      <p>Multi-Phase Digital VRM</p>
+                      <p>0.8V @ 120A Peak Output</p>
+                      <p>Ultra-Low ESR Decoupling</p>
                     </Copy>
                   </div>
                   <div className="sample-space-hero-sub-col">
                     <Copy delay={0.2}>
-                      <p>Natural Elements</p>
-                      <p>Court planting</p>
-                      <p>Daylight wells</p>
-                      <p>Cross ventilation</p>
+                      <p>Compliance</p>
+                      <p>IPC-6012 Class 3</p>
+                      <p>RoHS / REACH Compliant</p>
+                      <p>Zero DRC Violations</p>
                     </Copy>
                   </div>
                 </div>
               </div>
               <div className="sample-space-details-img">
                 <img
-                  src="/sample-space/sample-space-2.jpg"
-                  alt="Arcade Residence interiors and light"
+                  src="/spotlight/10.jpg.jpeg"
+                  alt="TensorCore PCB Microvia Routing Detail"
                 />
               </div>
               <Copy delay={0.2}>
                 <h3>
-                  Every choice within the residence was guided by sensory
-                  experience. The aim was not only to frame views but to shape
-                  how sound, touch, and temperature are felt as one moves
-                  through the home.
+                  Every trace, via, and copper plane on the TensorCore carrier
+                  was validated through integrated AI simulations before fabrication,
+                  ensuring a 100% first-pass prototype yield and flawless hardware reliability.
                 </h3>
               </Copy>
             </div>
           </div>
         </section>
         <CTAWindow
-          img="/sample-space/next-project.jpg"
-          header="Next Project"
-          callout="Built for stillness and clarity"
-          description="A study in restraint and resonance, this space invites quietude. Materials, light, and layout come together."
+          img="/spotlight/9.jpg.jpeg"
+          header="Next Design"
+          callout="Accelerate your PCB engineering with Conekt"
+          description="Build multi-layer, high-speed, and RF boards faster with AI-assisted routing, automatic component search, and instant DRC checks."
         />
       </div>
       <ConditionalFooter />

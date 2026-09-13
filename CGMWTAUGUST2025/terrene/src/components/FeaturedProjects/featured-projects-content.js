@@ -1,31 +1,31 @@
 const featuredProjectsContent = [
   {
-    info: "An immersive lounge built around a central tree",
-    title: "Sanctum Hall",
+    info: "16-Layer High-Speed Edge Compute Substrate",
+    title: "TensorCore Carrier",
     description:
-      "Circular seating, arched openings, and natural textures create a serene gathering space. The design balances monumentality with intimacy, framing nature as the focal point.",
-    image: "/featured-projects/featured-work-1.jpg",
+      "Ultra-dense BGA breakout with sub-picosecond length-matched differential pairs and integrated thermal via arrays for edge AI inference hardware.",
+    image: "/spotlight/4.jpg.jpeg",
   },
   {
-    info: "A private retreat defined by water and sun",
-    title: "Desert Poolhouse",
+    info: "Low-Power Wireless Sensor Node with Tuned RF",
+    title: "AeroNode Telemetry",
     description:
-      "Soft stucco walls, a lone palm, and an open sky bring elemental simplicity. The still surface of the pool becomes both mirror and threshold, blurring enclosure and openness.",
-    image: "/featured-projects/featured-work-2.jpg",
+      "Compact multi-sensor IoT board featuring impedance-controlled trace antennas, power harvesting circuitry, and rigid-flex transitions for aerospace monitoring.",
+    image: "/spotlight/9.jpg.jpeg",
   },
   {
-    info: "A cloister-inspired courtyard with generous arches",
-    title: "Arcade Residence",
+    info: "Multi-Phase High-Current Robotics Controller",
+    title: "QuantumDrive ESC",
     description:
-      "Rhythmic colonnades and layered seating zones encourage calm gatherings. Textured stone and filtered light evoke both permanence and ease, rooted in classical geometry.",
-    image: "/featured-projects/featured-work-3.jpg",
+      "Heavy copper power distribution network engineered with automated thermal relief, low-ESR capacitance decoupling, and high-frequency MOSFET switching.",
+    image: "/spotlight/9.jpg.jpeg",
   },
   {
-    info: "A refined interior anchored by symmetry and light",
-    title: "Atrium Gallery",
+    info: "Modular FPGA Acceleration Architecture",
+    title: "OmniVision Core",
     description:
-      "A quiet procession of columns and a sculptural centerpiece guide the eye toward framed views. Warm plaster walls and soft daylight create a setting of contemplative elegance.",
-    image: "/featured-projects/featured-work-4.jpg",
+      "High-density interconnect architecture designed with AI-driven automated pin swapping, gigabit SerDes routing, and verified power integrity simulation.",
+    image: "/spotlight/4.jpg.jpeg",
   },
 ];
 

@@ -50,13 +50,9 @@ const Footer = () => {
         <div className="container footer-meta-header">
           <div className="footer-meta-col">
             <div className="footer-meta-block">
-              <div className="footer-meta-logo">
-                <Copy delay={0.1}>
-                  <h3 className="lg">AUGUST BLACK</h3>
-                </Copy>
-              </div>
+              {/* Logo removed as requested */}
               <Copy delay={0.2}>
-                <h2>Spaces made simple, thoughtful, lasting.</h2>
+                <h2>Hardware design made intelligent, seamless, and precise.</h2>
               </Copy>
             </div>
           </div>
@@ -79,16 +75,18 @@ const Footer = () => {
                     navigateWithTransition("/studio");
                   }}
                 >
-                  <h3>Studio</h3>
+                  <h3>About</h3>
                 </a>
+                {/* 
                 <a
                   href="/spaces"
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/spaces");
                   }}
+                  style={{ display: 'none' }}
                 >
-                  <h3>Our Spaces</h3>
+                  <h3>Designs</h3>
                 </a>
                 <a
                   href="/sample-space"
@@ -96,8 +94,9 @@ const Footer = () => {
                     e.preventDefault();
                     navigateWithTransition("/sample-space");
                   }}
+                  style={{ display: 'none' }}
                 >
-                  <h3>One Installation</h3>
+                  <h3>Case Study</h3>
                 </a>
                 <a
                   href="/blueprints"
@@ -105,9 +104,11 @@ const Footer = () => {
                     e.preventDefault();
                     navigateWithTransition("/blueprints");
                   }}
+                  style={{ display: 'none' }}
                 >
-                  <h3>Blueprints</h3>
+                  <h3>Gallery</h3>
                 </a>
+                */}
                 <a
                   href="/connect"
                   onClick={(e) => {
@@ -123,6 +124,7 @@ const Footer = () => {
         </div>
         <div className="container footer-socials">
           <div className="footer-meta-col">
+            {/* 
             <div className="footer-socials-wrapper" ref={socialIconsRef}>
               <div className="icon">
                 <RiLinkedinBoxLine />
@@ -137,12 +139,13 @@ const Footer = () => {
                 <RiYoutubeLine />
               </div>
             </div>
+            */}
           </div>
           <div className="footer-meta-col">
             <Copy delay={0.1}>
               <p>
-                We believe design is not decoration but the quiet structure that
-                shapes experience.
+                We believe the future of electronics lies in intelligent automation,
+                empowering engineers to design and scale next-generation hardware without friction.
               </p>
             </Copy>
           </div>
@@ -151,14 +154,14 @@ const Footer = () => {
       <div className="footer-outro">
         <div className="container">
           <div className="footer-header">
-            <img src="/logos/converted.svg" alt="" />
+            <img src="/home/image.png" alt="Conekt Logo" />
           </div>
           <div className="footer-copyright">
             <p>
-              Developed by — <span>namit</span>
+              Developed by — <span>Conekt</span>
             </p>
-            <p>This website is using cookies.</p>
-            <p>All rights reserverd &copy; 2025</p>
+            <p>Empowering PCB Engineering with AI.</p>
+            <p>All rights reserved &copy; 2025 Conekt AI</p>
           </div>
         </div>
       </div>

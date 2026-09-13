@@ -112,13 +112,13 @@ const HowWeWork = () => {
           <div className="how-we-work-header-content">
             <div className="how-we-work-header-callout">
               <Copy delay={0.1}>
-                <p>Process in focus</p>
+                <p>About Founders</p>
               </Copy>
             </div>
             <Copy delay={0.15}>
               <h3>
-                From first sketches to final details, our process is shaped to
-                bring clarity and rhythm
+                Meet the minds behind Conekt, bridging engineering and education 
+                to revolutionize physical product creation.
               </h3>
             </Copy>
             <div className="how-we-work-steps" ref={stepsRef}>
@@ -127,32 +127,14 @@ const HowWeWork = () => {
                   activeStep === 0 ? "active" : ""
                 }`}
               >
-                <p className="how-we-work-step-label">Step</p>
-                <p className="how-we-work-step-index">1</p>
+                <p className="how-we-work-step-index">Er. Anjum</p>
               </div>
               <div
                 className={`how-we-work-step ${
                   activeStep === 1 ? "active" : ""
                 }`}
               >
-                <p className="how-we-work-step-label">Step</p>
-                <p className="how-we-work-step-index">2</p>
-              </div>
-              <div
-                className={`how-we-work-step ${
-                  activeStep === 2 ? "active" : ""
-                }`}
-              >
-                <p className="how-we-work-step-label">Step</p>
-                <p className="how-we-work-step-index">3</p>
-              </div>
-              <div
-                className={`how-we-work-step ${
-                  activeStep === 3 ? "active" : ""
-                }`}
-              >
-                <p className="how-we-work-step-label">Step</p>
-                <p className="how-we-work-step-index">4</p>
+                <p className="how-we-work-step-index">Namit</p>
               </div>
             </div>
           </div>
@@ -161,61 +143,37 @@ const HowWeWork = () => {
       <div className="how-we-work-col how-we-work-cards" ref={cardsRef}>
         <div className="how-we-work-card">
           <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-1.jpg" alt="" />
+            <img src="/spotlight/8.jpg.jpeg" alt="Er. Anjum Mujawar" />
           </div>
           <div className="how-we-work-card-copy">
             <div className="how-we-work-card-index-label">
-              <h3>Discovery / Context</h3>
+              <h3>Er. Anjum Mujawar</h3>
             </div>
             <p className="md">
-              We begin with listening and study. Site, climate, and daily
-              routines inform the brief so we can define aims, constraints, and
-              measures of success with clarity.
+              Er. Anjum Mujawar brings over 20 years of expertise in Embedded Systems, AI, and IoT. As an educator, technologist, and CTO at Vidyalankar Polytechnic, he bridges the gap between academia and industry innovation.
+              <br /><br />
+              With a strong focus on hands-on product development, he actively mentors startups and drives applied AI research in healthcare.
+              <br /><br />
+              Contact: <a href="mailto:anjum.mujawar@vpt.edu.in" style={{textDecoration: 'underline'}}>anjum.mujawar@vpt.edu.in</a><br />
+              LinkedIn: <a href="https://linkedin.com/in/anjum-mujawar" target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>linkedin.com/in/anjum-mujawar</a>
             </p>
           </div>
         </div>
         <div className="how-we-work-card">
           <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-2.jpg" alt="" />
+            <img src="/spotlight/8.jpg.jpeg" alt="Namit Jadhav" />
           </div>
           <div className="how-we-work-card-copy">
             <div className="how-we-work-card-index-label">
-              <h3>Principles / Direction</h3>
+              <h3>Namit Jadhav</h3>
             </div>
             <p className="md">
-              We set guiding principles for light, massing, and flow. Quick
-              models and diagrams test options and reveal the direction that
-              best serves the brief.
-            </p>
-          </div>
-        </div>
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-3.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
-              <h3>Detail / Coordination</h3>
-            </div>
-            <p className="md">
-              We develop drawings and specifications across structure, services,
-              and joinery. Materials and samples are reviewed in natural light
-              while budget and timeline stay in view.
-            </p>
-          </div>
-        </div>
-        <div className="how-we-work-card">
-          <div className="how-we-work-card-img">
-            <img src="/how-we-work/process-4.jpg" alt="" />
-          </div>
-          <div className="how-we-work-card-copy">
-            <div className="how-we-work-card-index-label">
-              <h3>Build / Handover</h3>
-            </div>
-            <p className="md">
-              We oversee construction with care and precision. After final
-              review and finishing, we hand over a space that is ready to live
-              in, complete with guidance for long term care.
+              Namit Jadhav is a tech entrepreneur and engineering student passionate about building scalable products. By combining engineering, design, and business strategy, he turns ambitious ideas into real-world solutions.
+              <br /><br />
+              Namit has collaborated with diverse organizations like YANTRAA and Colab.tech to deliver practical, impactful technology that solves meaningful problems.
+              <br /><br />
+              Contact: <a href="mailto:contact@namit.engineer" style={{textDecoration: 'underline'}}>contact@namit.engineer</a><br />
+              LinkedIn: <a href="https://www.linkedin.com/in/namitjadhav/" target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>linkedin.com/in/namitjadhav</a>
             </p>
           </div>
         </div>

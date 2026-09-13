@@ -24,6 +24,7 @@ const Nav = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [showMenuBtn, setShowMenuBtn] = useState(false);
   const menuRef = useRef(null);
   const isInitializedRef = useRef(false);
   const splitTextRefs = useRef([]);
@@ -41,6 +42,15 @@ const Nav = () => {
       }
     }
   }, [lenis, isOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowMenuBtn(window.scrollY > window.innerHeight * 0.75);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
@@ -100,6 +110,19 @@ const Nav = () => {
 
       isInitializedRef.current = true;
     }
+
+    const handleRevert = () => {
+      splitTextRefs.current.forEach((split) => {
+        if (split && split.revert) split.revert();
+      });
+    };
+    window.addEventListener("revertSplits", handleRevert);
+
+    return () => {
+      window.removeEventListener("revertSplits", handleRevert);
+      handleRevert();
+      splitTextRefs.current = [];
+    };
   }, []);
 
   const animateMenu = useCallback((open) => {
@@ -187,9 +210,13 @@ const Nav = () => {
       setIsOpen((prevIsOpen) => {
         return !prevIsOpen;
       });
-    } else {
     }
   }, [isAnimating, isNavigating]);
+
+  useEffect(() => {
+    window.addEventListener("toggleMenu", toggleMenu);
+    return () => window.removeEventListener("toggleMenu", toggleMenu);
+  }, [toggleMenu]);
 
   const handleLinkClick = useCallback(
     (e, href) => {
@@ -225,7 +252,9 @@ const Nav = () => {
 
   return (
     <div>
-      <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
+      <div style={{ opacity: showMenuBtn || isOpen ? 1 : 0, pointerEvents: showMenuBtn || isOpen ? 'auto' : 'none', transition: 'opacity 0.3s ease' }}>
+        <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
+      </div>
       <div className="menu" ref={menuRef}>
         <div className="menu-wrapper">
           <div className="col col-1">
@@ -240,33 +269,38 @@ const Nav = () => {
                   href="/studio"
                   onClick={(e) => handleLinkClick(e, "/studio")}
                 >
-                  <h2>Studio</h2>
+                  <h2>About</h2>
                 </a>
               </div>
+              {/* 
               <div className="link">
                 <a
                   href="/spaces"
                   onClick={(e) => handleLinkClick(e, "/spaces")}
+                  style={{ display: 'none' }}
                 >
-                  <h2>Our Spaces</h2>
+                  <h2>Designs</h2>
                 </a>
               </div>
               <div className="link">
                 <a
                   href="/sample-space"
                   onClick={(e) => handleLinkClick(e, "/sample-space")}
+                  style={{ display: 'none' }}
                 >
-                  <h2>One Installation</h2>
+                  <h2>Case Study</h2>
                 </a>
               </div>
               <div className="link">
                 <a
                   href="/blueprints"
                   onClick={(e) => handleLinkClick(e, "/blueprints")}
+                  style={{ display: 'none' }}
                 >
-                  <h2>Blueprints</h2>
+                  <h2>Gallery</h2>
                 </a>
               </div>
+              */}
               <div className="link">
                 <a
                   href="/connect"
@@ -281,24 +315,24 @@ const Nav = () => {
             <div className="socials">
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
-                  <p>Commissions</p>
-                  <p>build@august-black.studio</p>
-                  <p>+1 (872) 441‑2086</p>
+                  <p>Inquiries</p>
+                  <p>teams@conekt.design</p>
                 </div>
                 <div className="menu-meta">
-                  <p>Studio Address</p>
-                  <p>18 Cordova Lane</p>
-                  <p>Seattle, WA 98101</p>
+                  <p>Headquarters</p>
+                  <p>Mumbai, India</p>
                 </div>
               </div>
+              {/*
               <div className="sub-col">
                 <div className="menu-meta">
                   <p>Social</p>
-                  <p>Instagram</p>
-                  <p>Are.na</p>
+                  <p>GitHub</p>
+                  <p>Twitter / X</p>
                   <p>LinkedIn</p>
                 </div>
               </div>
+              */}
             </div>
           </div>
         </div>

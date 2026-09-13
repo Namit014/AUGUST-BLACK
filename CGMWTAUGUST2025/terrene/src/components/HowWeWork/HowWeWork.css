@@ -42,8 +42,8 @@
 
 .how-we-work .how-we-work-step {
   position: relative;
-  padding: 1.25rem;
-  width: 4rem;
+  padding: 0 1.5rem;
+  width: auto;
   height: 4rem;
   display: flex;
   align-items: center;
@@ -76,18 +76,12 @@
 }
 
 .how-we-work .how-we-work-step.active {
-  width: 8rem;
   color: var(--base-500);
   background-color: var(--base-100);
   border-color: var(--base-100);
 }
 
 .how-we-work .how-we-work-step.active .how-we-work-step-index {
-  transform: translateX(24px);
-}
-
-.how-we-work .how-we-work-step.active .how-we-work-step-label {
-  opacity: 1;
   transform: translateX(0);
 }
 

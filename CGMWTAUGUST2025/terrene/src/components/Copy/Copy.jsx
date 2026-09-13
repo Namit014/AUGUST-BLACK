@@ -101,25 +101,25 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
         }
       };
 
+      const handleRevert = () => {
+        splitRefs.current.forEach((split) => {
+          if (split) split.revert();
+        });
+      };
+      window.addEventListener("revertSplits", handleRevert);
+
       initializeSplitText();
 
       return () => {
-        splitRefs.current.forEach((split) => {
-          if (split) {
-            split.revert();
-          }
-        });
+        window.removeEventListener("revertSplits", handleRevert);
+        handleRevert();
       };
     },
     { scope: containerRef, dependencies: [animateOnScroll, delay] }
   );
 
-  if (React.Children.count(children) === 1) {
-    return React.cloneElement(children, { ref: containerRef });
-  }
-
   return (
-    <div ref={containerRef} data-copy-wrapper="true">
+    <div ref={containerRef} data-copy-wrapper="true" style={{ display: "contents" }}>
       {children}
     </div>
   );

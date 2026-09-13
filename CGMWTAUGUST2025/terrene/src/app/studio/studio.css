@@ -119,3 +119,43 @@
   min-height: 100svh;
   background-color: var(--base-500);
 }
+
+.founders {
+  position: relative;
+  width: 100vw;
+  color: var(--base-100);
+  padding: 4rem 0;
+}
+
+.founders .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.founder-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--base-450);
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+.founder-block h3 {
+  font-size: 2rem;
+  color: var(--base-200);
+}
+
+.founder-block p {
+  color: var(--base-300);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.founder-contact a {
+  color: var(--base-100);
+  text-decoration: underline;
+  margin-right: 1.5rem;
+}
+

@@ -1,0 +1,186 @@
+.waitlist-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  background-color: rgba(13, 12, 12, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.waitlist-modal-overlay.open {
+  pointer-events: all;
+}
+
+.waitlist-modal {
+  /* Ticket background */
+  background-color: var(--base-100); /* Off-white ticket */
+  color: var(--base-500); /* Charcoal/Black text */
+
+  /* Use mask-image to create the ticket cutouts on the sides */
+  -webkit-mask-image: 
+    radial-gradient(circle at 0 75%, transparent 20px, black 21px),
+    radial-gradient(circle at 100% 75%, transparent 20px, black 21px);
+  -webkit-mask-composite: source-in;
+  mask-image: 
+    radial-gradient(circle at 0 75%, transparent 20px, black 21px),
+    radial-gradient(circle at 100% 75%, transparent 20px, black 21px);
+  mask-composite: intersect;
+
+  border-radius: 1.5rem;
+  padding: 3rem;
+  padding-bottom: 4rem; /* Extra padding for the bottom ticket section */
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  transform: translateY(20px);
+  overflow: hidden; /* For the top accent */
+}
+
+/* Ticket top colored band (Olive theme) */
+.waitlist-modal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background-color: #5c674b; /* Olive green */
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.15) 10px,
+    rgba(0, 0, 0, 0.15) 20px
+  );
+  pointer-events: none;
+}
+
+/* Optional: Add a dashed line across the ticket where the cutouts are */
+.waitlist-modal::before {
+  content: "";
+  position: absolute;
+  top: 75%;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  border-top: 2px dashed var(--base-300); /* Darker dashed line for white ticket */
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.waitlist-modal-close {
+  position: absolute;
+  top: 2rem; /* pushed down a bit to clear the top band */
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--base-350);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.waitlist-modal-close:hover {
+  color: var(--base-500);
+}
+
+.waitlist-modal h2 {
+  font-size: 2rem;
+  color: var(--base-500);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.05rem;
+}
+
+.waitlist-modal p {
+  color: var(--base-400);
+  margin-bottom: 2rem;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.waitlist-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.waitlist-form-group label {
+  color: var(--base-500);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.waitlist-form-group input {
+  background-color: transparent;
+  border: 1px solid var(--base-300);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  color: var(--base-500);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.waitlist-form-group input:focus {
+  border-color: #5c674b;
+}
+
+.waitlist-form-group input::placeholder {
+  color: var(--base-300);
+}
+
+.waitlist-submit {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button overrides for light background */
+.waitlist-submit .btn {
+  background-color: var(--base-500);
+  color: var(--base-100);
+}
+
+.waitlist-submit .btn:hover {
+  background-color: #4a5338; /* Darker Olive hover */
+}
+
+.waitlist-submit .btn .circle {
+  background-color: #4a5338; /* Darker Olive circle */
+}
+
+.waitlist-success {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.waitlist-success h2 {
+  font-size: 2rem;
+  color: #5c674b; /* Olive success color instead of generic green */
+  margin-bottom: 1rem;
+}
+
+.waitlist-success p {
+  color: var(--base-400);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .waitlist-modal {
+    padding: 2rem;
+  }
+}

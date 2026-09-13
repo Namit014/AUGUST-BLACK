@@ -26,16 +26,16 @@ const Spotlight = () => {
   };
 
   const spotlightItems = [
-    { name: "Courtyard Stillness", img: "/spotlight/spotlight-img-1.jpg" },
-    { name: "Blue Horizon", img: "/spotlight/spotlight-img-2.jpg" },
-    { name: "Stone Quiet", img: "/spotlight/spotlight-img-3.jpg" },
-    { name: "Amber Niche", img: "/spotlight/spotlight-img-4.jpg" },
-    { name: "Earthen Shelf", img: "/spotlight/spotlight-img-5.jpg" },
-    { name: "Reflective White", img: "/spotlight/spotlight-img-6.jpg" },
-    { name: "Desert Edge", img: "/spotlight/spotlight-img-7.jpg" },
-    { name: "Soft Passage", img: "/spotlight/spotlight-img-8.jpg" },
-    { name: "Water Column", img: "/spotlight/spotlight-img-9.jpg" },
-    { name: "Golden Retreat", img: "/spotlight/spotlight-img-10.jpg" },
+    { name: "AI COPILOT", subtext: "Your engineering assistant, built into the workflow.", img: "/spotlight/1.jpg.jpeg" },
+    { name: "COMPONENT SEARCH", subtext: "Find the right component without digging through libraries.", img: "/spotlight/2.jpg.jpeg" },
+    { name: "SYMBOL & FOOTPRINTS", subtext: "Find, verify, and place the parts you need.", img: "/spotlight/3.jpg.jpeg" },
+    { name: "LIBRARY INTELLIGENCE", subtext: "Search across your libraries in seconds.", img: "/spotlight/4.jpg.jpeg" },
+    { name: "DESIGN AUTOMATION", subtext: "Let AI handle repetitive design work.", img: "/spotlight/5.jpg.jpeg" },
+    { name: "AI DESIGN", subtext: "Describe what you need. Let AI build it.", img: "/spotlight/6.jpg.jpeg" },
+    { name: "SMART DISCOVERY", subtext: "Find components, references, datasheets, and more.", img: "/spotlight/7.jpg.jpeg" },
+    { name: "CONTEXTUAL HELP", subtext: "Ask anything. Get answers based on your design.", img: "/spotlight/8.jpg.jpeg" },
+    { name: "DESIGN ACTIONS", subtext: "From suggestions to actual changes, when you need them.", img: "/spotlight/9.jpg.jpeg" },
+    { name: "WORKFLOW AUTOMATION", subtext: "Spend less time searching. Spend more time designing.", img: "/spotlight/10.jpg.jpeg" },
   ];
 
   useEffect(() => {
@@ -63,8 +63,18 @@ const Spotlight = () => {
       imageElements.length = 0;
 
       spotlightItems.forEach((item, index) => {
-        const titleElement = document.createElement("h1");
-        titleElement.textContent = item.name;
+        const titleElement = document.createElement("div");
+        titleElement.className = "spotlight-title-item";
+        
+        const h1 = document.createElement("h1");
+        h1.textContent = item.name;
+        
+        const p = document.createElement("p");
+        p.textContent = item.subtext;
+        
+        titleElement.appendChild(h1);
+        titleElement.appendChild(p);
+
         if (index === 0) titleElement.style.opacity = "1";
         titlesContainer.appendChild(titleElement);
 
@@ -78,11 +88,16 @@ const Spotlight = () => {
         imageElements.push(imgWrapper);
       });
 
-      const titleElements = titlesContainer.querySelectorAll("h1");
+      const titleElements = titlesContainer.querySelectorAll(".spotlight-title-item");
       titleElementsRef.current = titleElements;
 
       if (titleElements.length === 0) {
         return false;
+      }
+
+      const mobileHeader = document.querySelector(".mobile-header");
+      if (mobileHeader) {
+        mobileHeader.textContent = spotlightItems[0].name;
       }
 
       return true;
@@ -239,24 +254,35 @@ const Spotlight = () => {
 
           const viewportMiddle = viewportHeight / 2;
           let closestIndex = 0;
-          let closestDistance = Infinity;
 
-          titleElements.forEach((title, index) => {
-            const titleRect = title.getBoundingClientRect();
-            const titleCenter = titleRect.top + titleRect.height / 2;
-            const distanceFromCenter = Math.abs(titleCenter - viewportMiddle);
+          if (window.innerWidth <= 1000) {
+            closestIndex = Math.min(
+              spotlightItems.length - 1,
+              Math.max(0, Math.floor(switchProgress * spotlightItems.length))
+            );
+          } else {
+            let closestDistance = Infinity;
+            titleElements.forEach((title, index) => {
+              const titleRect = title.getBoundingClientRect();
+              const titleCenter = titleRect.top + titleRect.height / 2;
+              const distanceFromCenter = Math.abs(titleCenter - viewportMiddle);
 
-            if (distanceFromCenter < closestDistance) {
-              closestDistance = distanceFromCenter;
-              closestIndex = index;
-            }
-          });
+              if (distanceFromCenter < closestDistance) {
+                closestDistance = distanceFromCenter;
+                closestIndex = index;
+              }
+            });
+          }
 
           if (closestIndex !== currentActiveIndex) {
-            titleElements[currentActiveIndex].style.opacity = "0.35";
-            titleElements[closestIndex].style.opacity = "1";
+            if (titleElements[currentActiveIndex]) titleElements[currentActiveIndex].style.opacity = "0.15";
+            if (titleElements[closestIndex]) titleElements[closestIndex].style.opacity = "1";
             document.querySelector(".spotlight-bg-img img").src =
               spotlightItems[closestIndex].img;
+            
+            const mobileHeader = document.querySelector(".mobile-header");
+            if (mobileHeader) mobileHeader.textContent = spotlightItems[closestIndex].name;
+            
             currentActiveIndex = closestIndex;
           }
         } else if (progress > 0.95) {
@@ -284,17 +310,17 @@ const Spotlight = () => {
             className="spotlight-intro-text"
             ref={(el) => (introTextElementsRef.current[0] = el)}
           >
-            <p>Beneath</p>
+            <p>Beyond</p>
           </div>
           <div
             className="spotlight-intro-text"
             ref={(el) => (introTextElementsRef.current[1] = el)}
           >
-            <p>Beyond</p>
+            <p>EDA</p>
           </div>
         </div>
         <div className="spotlight-bg-img">
-          <img src="/spotlight/spotlight-img-1.jpg" alt="" />
+          <img src="/spotlight/1.jpg.jpeg" alt="" />
         </div>
       </div>
       <div
@@ -305,7 +331,8 @@ const Spotlight = () => {
       </div>
       <div className="spotlight-images" ref={imagesContainerRef}></div>
       <div className="spotlight-header" ref={spotlightHeaderRef}>
-        <p>Discover</p>
+        <p className="desktop-header">Conekt</p>
+        <p className="mobile-header"></p>
       </div>
       <div className="spotlight-outline"></div>
     </section>

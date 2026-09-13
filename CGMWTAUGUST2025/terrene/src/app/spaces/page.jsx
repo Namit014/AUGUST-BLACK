@@ -95,27 +95,27 @@ const page = () => {
             <div className="prop-col"></div>
             <div className="prop-col">
               <Copy delay={1}>
-                <h1>Timeless Spaces</h1>
+                <h1>Hardware Designs</h1>
               </Copy>
               <div className="prop-filters">
                 <div className="filter default">
                   <Copy delay={1}>
-                    <p className="lg">All</p>
+                    <p className="lg">All Boards</p>
                   </Copy>
                 </div>
                 <div className="filter">
                   <Copy delay={1.1}>
-                    <p className="lg">Residential</p>
+                    <p className="lg">High-Speed</p>
                   </Copy>
                 </div>
                 <div className="filter">
                   <Copy delay={1.2}>
-                    <p className="lg">Commercial</p>
+                    <p className="lg">RF &amp; Wireless</p>
                   </Copy>
                 </div>
                 <div className="filter">
                   <Copy delay={1.3}>
-                    <p className="lg">Hospitality</p>
+                    <p className="lg">Power &amp; Flex</p>
                   </Copy>
                 </div>
               </div>

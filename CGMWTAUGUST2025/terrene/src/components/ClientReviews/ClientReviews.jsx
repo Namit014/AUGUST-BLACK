@@ -108,12 +108,18 @@ const ClientReviews = () => {
       }
     }, 100);
 
-    return () => {
-      clearTimeout(initTimer);
+    const handleRevert = () => {
       if (splitTextRef.current) {
         splitTextRef.current.revert();
         splitTextRef.current = null;
       }
+    };
+    window.addEventListener("revertSplits", handleRevert);
+
+    return () => {
+      clearTimeout(initTimer);
+      window.removeEventListener("revertSplits", handleRevert);
+      handleRevert();
     };
   }, []);
 
