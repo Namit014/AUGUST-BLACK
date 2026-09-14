@@ -17,6 +17,7 @@ import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 import Spotlight from "@/components/Spotlight/Spotlight";
+import StheroHero from "@/components/StheroHero/StheroHero";
 let isInitialLoad = false;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
@@ -135,6 +136,22 @@ export default function Home() {
         "<"
       );
     }
+
+    gsap.fromTo(
+      ".site-content-wrapper",
+      { scale: 0.8, borderRadius: "40px", transformOrigin: "top center" },
+      {
+        scale: 1,
+        borderRadius: "0px",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".site-content-wrapper",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+        },
+      }
+    );
   }, [showPreloader]);
 
   useGSAP(
@@ -227,51 +244,9 @@ export default function Home() {
         </div>
       )}
       <Nav />
-      <section className="hero">
-        <div className="hero-bg">
-          <img src="/home/hero.jpg" alt="" />
-        </div>
-        <div className="hero-gradient"></div>
-        <div className="container">
-          <div className="hero-content">
-            {/* Top Pill Announcement Badge */}
-            <div className="hero-pill-badge">
-              <span className="pill-dot" />
-              <span>ALL IN ONE EDA OS</span>
-            </div>
+      <StheroHero />
 
-            {/* Main Headline */}
-            <div className="hero-headline">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10 : 0.85}>
-                <h1>
-                  From idea to hardware, <br />
-                  <span className="headline-highlight">in one place.</span>
-                </h1>
-              </Copy>
-            </div>
-
-            {/* Subheading */}
-            <div className="hero-tagline">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10.15 : 1}>
-                <p>
-                  Design. Simulate. Manufacture. Collaborate.
-                  <br />
-                  A unified OS for modern hardware creation.
-                </p>
-              </Copy>
-            </div>
-
-            {/* Primary CTA Button */}
-            <AnimatedButton
-              label="Join Waitlist"
-              onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
-              animateOnScroll={false}
-              delay={showPreloader ? 10.3 : 1.15}
-            />
-          </div>
-        </div>
-      </section>
-
+      <div className="site-content-wrapper" style={{ backgroundColor: "var(--base-500)" }}>
       <section className="hero-stats-section">
         <div className="container">
             <div className="stat">
@@ -449,6 +424,7 @@ export default function Home() {
         description="Our approach is guided by intelligent automation and precision, allowing every engineer to build hardware with zero friction."
       />
       <ConditionalFooter />
+      </div>
     </>
   );
 }
