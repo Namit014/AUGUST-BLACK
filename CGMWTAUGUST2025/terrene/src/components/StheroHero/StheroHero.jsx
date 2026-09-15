@@ -11,6 +11,7 @@ export default function StheroHero() {
   const canvasRef = useRef(null);
   const headerRef = useRef(null);
   const heroImgRef = useRef(null);
+  const pcbImgRef = useRef(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -147,6 +148,27 @@ export default function StheroHero() {
               opacity: 1,
             });
           }
+
+          // PCB Animation Logic
+          if (progress < 0.25) {
+             gsap.set(pcbImgRef.current, {
+               transform: `translateY(400px) translateZ(500px) rotateX(15deg)`,
+               opacity: 0
+             });
+          } else {
+             const pcbProgress = (progress - 0.25) / 0.75;
+             const translateY = 400 - (pcbProgress * 400);
+             const translateZ = 500 - (pcbProgress * 500);
+             const rotateX = 15 - (pcbProgress * 15);
+             let pcbOpacity = 1;
+             if (progress < 0.5) {
+               pcbOpacity = (progress - 0.25) / 0.25;
+             }
+             gsap.set(pcbImgRef.current, {
+               transform: `translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg)`,
+               opacity: pcbOpacity
+             });
+          }
         },
       });
     };
@@ -192,6 +214,12 @@ export default function StheroHero() {
       <div className="hero-img-container">
         <div className="hero-img" ref={heroImgRef}>
           <img src="/sthero/dashboard.png" alt="Conekt Dashboard" />
+        </div>
+      </div>
+
+      <div className="pcb-container">
+        <div className="pcb-img" ref={pcbImgRef}>
+          <img src="/sthero/pcb.png" alt="Yantraa PCB" />
         </div>
       </div>
     </section>

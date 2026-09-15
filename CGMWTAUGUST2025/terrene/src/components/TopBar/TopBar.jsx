@@ -68,19 +68,9 @@ const TopBar = () => {
 
   return (
     <div className="top-bar" ref={topBarRef}>
-      <div className="top-bar-logo">
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            navigateWithTransition("/");
-          }}
-        >
-          <img src="/logos/logo1.jpg" alt="" />
-        </a>
-      </div>
+      {/* Logo removed as requested */}
       <div className="top-bar-cta">
-        <AnimatedButton label="Reserve" route="/connect" animate={false} />
+        {/* Reserve button removed */}
       </div>
     </div>
   );

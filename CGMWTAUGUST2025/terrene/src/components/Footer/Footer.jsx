@@ -158,10 +158,10 @@ const Footer = () => {
           </div>
           <div className="footer-copyright">
             <p>
-              Developed by — <span>Conekt</span>
+              Proudly made in India — <span>Conekt</span>
             </p>
             <p>Empowering PCB Engineering with AI.</p>
-            <p>All rights reserved &copy; 2025 Conekt AI</p>
+            <p>All rights reserved &copy; 2026 Conekt AI</p>
           </div>
         </div>
       </div>

@@ -17,8 +17,8 @@ import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 import Spotlight from "@/components/Spotlight/Spotlight";
-import StheroHero from "@/components/StheroHero/StheroHero";
-let isInitialLoad = false;
+import Hero from "@/components/Hero/Hero";
+let isInitialLoad = true;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
@@ -54,77 +54,37 @@ export default function Home() {
 
     if (showPreloader) {
       setLoaderAnimating(true);
-      const counts = document.querySelectorAll(".count");
 
-      counts.forEach((count, index) => {
-        const digits = count.querySelectorAll(".digit h1");
+      // Setup initial state
+      gsap.set("#pt-1 > h1", { y: "120%", x: "0%" });
+      gsap.set("#pt-2 > h1", { x: "120%", y: "0%" });
+      gsap.set("#pt-3 > h1", { y: "-120%", x: "0%" });
+      gsap.set("#pt-4 > .intro-logo", { x: "-120%", y: "0%" });
+      
+      // Sequence
+      // 1. EDA made (Bottom to Top)
+      tl.to("#pt-1 > h1", { y: "0%", duration: 0.4 })
+        .to("#pt-1 > h1", { y: "-120%", duration: 0.3, delay: 0.15 });
 
-        tl.to(
-          digits,
-          {
-            y: "0%",
-            duration: 1,
-            stagger: 0.075,
-          },
-          index * 1
-        );
+      // 2. easy (Right to Left)
+      tl.to("#pt-2 > h1", { x: "0%", duration: 0.4 }, "-=0.1")
+        .to("#pt-2 > h1", { x: "-120%", duration: 0.3, delay: 0.15 });
 
-        if (index < counts.length) {
-          tl.to(
-            digits,
-            {
-              y: "-100%",
-              duration: 1,
-              stagger: 0.075,
-            },
-            index * 1 + 1
-          );
-        }
-      });
+      // 3. by (Top to Bottom)
+      tl.to("#pt-3 > h1", { y: "0%", duration: 0.4 }, "-=0.1")
+        .to("#pt-3 > h1", { y: "120%", duration: 0.3, delay: 0.15 });
 
-      tl.to(".spinner", {
-        opacity: 0,
-        duration: 0.3,
-      });
+      // 4. Logo (Left to Right)
+      tl.to("#pt-4 > .intro-logo", { x: "0%", duration: 0.5 }, "-=0.1")
+        .to("#pt-4 > .intro-logo", { x: "120%", duration: 0.4, delay: 0.3 });
 
-      tl.to(
-        ".word h1",
-        {
-          y: "0%",
-          duration: 1,
-        },
-        "<"
-      );
-
-      tl.to(".divider", {
-        scaleY: "100%",
-        duration: 1,
-        onComplete: () =>
-          gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
-      });
-
-      tl.to("#word-1 h1", {
-        y: "100%",
-        duration: 1,
-        delay: 0.3,
-      });
-
-      tl.to(
-        "#word-2 h1",
-        {
-          y: "-100%",
-          duration: 1,
-        },
-        "<"
-      );
-
+      // Reveal site
       tl.to(
         ".block",
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
           duration: 1,
           stagger: 0.1,
-          delay: 0.75,
           onStart: () => {
             gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" });
           },
@@ -133,25 +93,9 @@ export default function Home() {
             setLoaderAnimating(false);
           },
         },
-        "<"
+        "-=0.2"
       );
     }
-
-    gsap.fromTo(
-      ".site-content-wrapper",
-      { scale: 0.8, borderRadius: "40px", transformOrigin: "top center" },
-      {
-        scale: 1,
-        borderRadius: "0px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".site-content-wrapper",
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        },
-      }
-    );
   }, [showPreloader]);
 
   useGSAP(
@@ -185,68 +129,28 @@ export default function Home() {
             <div className="block"></div>
             <div className="block"></div>
           </div>
-          <div className="intro-logo">
-            <div className="word" id="word-1">
-              <h1>
-                <span>co</span>
-              </h1>
+          <div className="preloader-text-wrapper">
+            <div className="p-text-clip" id="pt-1">
+              <h1>EDA made</h1>
             </div>
-            <div className="word" id="word-2">
-              <h1>Nekt</h1>
+            <div className="p-text-clip" id="pt-2">
+              <h1>easy</h1>
             </div>
-          </div>
-          <div className="divider"></div>
-          <div className="spinner-container">
-            <div className="spinner"></div>
-          </div>
-          <div className="counter">
-            <div className="count">
-              <div className="digit">
-                <h1>0</h1>
-              </div>
-              <div className="digit">
-                <h1>0</h1>
-              </div>
+            <div className="p-text-clip" id="pt-3">
+              <h1>by</h1>
             </div>
-            <div className="count">
-              <div className="digit">
-                <h1>2</h1>
-              </div>
-              <div className="digit">
-                <h1>7</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>6</h1>
-              </div>
-              <div className="digit">
-                <h1>5</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>9</h1>
-              </div>
-              <div className="digit">
-                <h1>8</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>9</h1>
-              </div>
-              <div className="digit">
-                <h1>9</h1>
+            <div className="p-text-clip" id="pt-4">
+              <div className="intro-logo">
+                <img src="/home/image.png" alt="Conekt" className="preloader-logo-img" />
               </div>
             </div>
           </div>
         </div>
       )}
       <Nav />
-      <StheroHero />
+      <Hero />
 
-      <div className="site-content-wrapper" style={{ backgroundColor: "var(--base-500)" }}>
+      {/* Stats Section - Hidden as requested
       <section className="hero-stats-section">
         <div className="container">
             <div className="stat">
@@ -303,6 +207,7 @@ export default function Home() {
             </div>
           </div>
       </section>
+      */}
       <section className="what-we-do">
         <div className="container">
           <div className="what-we-do-header">
@@ -310,8 +215,7 @@ export default function Home() {
               <h1>
                 <span className="spacer">&nbsp;</span>
                 At Conekt, we build with intelligence and precision, providing an AI EDA
-                that assists users in making PCBs and reduces design complications
-                to absolute zero.
+                that reduces design complications to absolute zero.
               </h1>
             </Copy>
           </div>
@@ -424,7 +328,6 @@ export default function Home() {
         description="Our approach is guided by intelligent automation and precision, allowing every engineer to build hardware with zero friction."
       />
       <ConditionalFooter />
-      </div>
     </>
   );
 }
